@@ -13,7 +13,9 @@ public class InformeSistema {
         long mReservada = runtime.totalMemory()/ (1024 * 1024);
         long mLibre = runtime.freeMemory()/ (1024 * 1024);
         long mUso = (runtime.totalMemory() - runtime.freeMemory());
-        long porcentajeUso = mUso * 100 / mReservada;
+        long maxMemory = runtime.maxMemory();
+        long porcentajeUso = mUso / (1024 * 1024) * 100 / mReservada;
+
 
         System.out.println("PROCESADORES");
         System.out.println("============================================================");
@@ -25,8 +27,8 @@ public class InformeSistema {
         System.out.println("============================================================");
         System.out.println("  Total reservada: "+ mReservada +" MiB");
         System.out.println("  Libre:           "+mLibre+" MiB");
-        System.out.println("  En uso:          "+mUso / (1024 * 1024)+" MiB (5 % de la total)");
-        System.out.println("  Máxima (-Xmx):   "+porcentajeUso+" MiB");
+        System.out.println("  En uso:          "+mUso / (1024 * 1024)+" MiB ("+porcentajeUso+" % de la total)");
+        System.out.println("  Máxima (-Xmx):   "+maxMemory+" MiB");
         System.out.println();
 
         long[] reservado = new long[8 * 1024 * 1024];
@@ -35,15 +37,16 @@ public class InformeSistema {
         long mReservada2 = runtime.totalMemory()/ (1024 * 1024);
         long mLibre2 = runtime.freeMemory()/ (1024 * 1024);
         long mUso2 = (runtime.totalMemory() - runtime.freeMemory());;
-        long porcentajeUso2 = mUso2 * 100 / mReservada;
+        long porcentajeUso2 = mUso2/ (1024 * 1024) * 100 / mReservada2;
+        long maxMemory2 = runtime.maxMemory();
         long incrementoUso = mUso2 - mUso;
 
         System.out.println("MEMORIA · DESPUÉS DE RESERVAR 64 MiB");
         System.out.println("============================================================");
         System.out.println("  Total reservada: "+ mReservada2 +" MiB");
         System.out.println("  Libre:           "+mLibre2+" MiB");
-        System.out.println("  En uso:          "+mUso2 / (1024 * 1024)+" MiB (5 % de la total)");
-        System.out.println("  Máxima (-Xmx):   "+porcentajeUso2+" MiB");
+        System.out.println("  En uso:          "+mUso2 / (1024 * 1024)+" MiB ("+porcentajeUso2+" % de la total)");
+        System.out.println("  Máxima (-Xmx):   "+maxMemory2+" MiB");
         System.out.println("  Incremento en uso: " +incrementoUso+ " MiB");
         System.out.println("  (el array sigue en memoria: reservado[0] = 0)");
         System.out.println();
