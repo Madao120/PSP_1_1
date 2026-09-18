@@ -1,14 +1,18 @@
 package org.example;
 
-public class InformeSistemaprueba {
-    static void Main(String[] args){
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class InformeSistema {
+    public static void main(String[] args){
         Runtime runtime = Runtime.getRuntime();
-        long[] reservado = new long[8 * 1024 * 1024];
+
 
         int procesadores = runtime.availableProcessors();
         long mReservada = runtime.totalMemory()/ (1024 * 1024);
         long mLibre = runtime.freeMemory()/ (1024 * 1024);
-        long mUso = (mReservada - mLibre) / (1024 * 1024);
+        long mUso = (runtime.totalMemory() - runtime.freeMemory());
         long porcentajeUso = mUso * 100 / mReservada;
 
         System.out.println("PROCESADORES");
@@ -21,23 +25,24 @@ public class InformeSistemaprueba {
         System.out.println("============================================================");
         System.out.println("  Total reservada: "+ mReservada +" MiB");
         System.out.println("  Libre:           "+mLibre+" MiB");
-        System.out.println("  En uso:          "+mUso+" MiB (5 % de la total)");
+        System.out.println("  En uso:          "+mUso / (1024 * 1024)+" MiB (5 % de la total)");
         System.out.println("  Máxima (-Xmx):   "+porcentajeUso+" MiB");
         System.out.println();
 
+        long[] reservado = new long[8 * 1024 * 1024];
         reservado[0]= 0;
 
         long mReservada2 = runtime.totalMemory()/ (1024 * 1024);
         long mLibre2 = runtime.freeMemory()/ (1024 * 1024);
-        long mUso2 = (mReservada - mLibre) / (1024 * 1024);
-        long porcentajeUso2 = mUso * 100 / mReservada;
+        long mUso2 = (runtime.totalMemory() - runtime.freeMemory());;
+        long porcentajeUso2 = mUso2 * 100 / mReservada;
         long incrementoUso = mUso2 - mUso;
 
         System.out.println("MEMORIA · DESPUÉS DE RESERVAR 64 MiB");
         System.out.println("============================================================");
         System.out.println("  Total reservada: "+ mReservada2 +" MiB");
         System.out.println("  Libre:           "+mLibre2+" MiB");
-        System.out.println("  En uso:          "+mUso2+" MiB (5 % de la total)");
+        System.out.println("  En uso:          "+mUso2 / (1024 * 1024)+" MiB (5 % de la total)");
         System.out.println("  Máxima (-Xmx):   "+porcentajeUso2+" MiB");
         System.out.println("  Incremento en uso: " +incrementoUso+ " MiB");
         System.out.println("  (el array sigue en memoria: reservado[0] = 0)");
@@ -86,9 +91,12 @@ public class InformeSistemaprueba {
         System.out.println("PROCESO EN ESPERA");
         System.out.println("============================================================");
         System.out.println("  Búscame desde otra terminal con:");
-        System.out.println("    ps -ef | grep InformeSistema");
+            System.out.println("    ps -ef | grep InformeSistema");
         System.out.println();
         System.out.println("  Pulsa INTRO para terminar...");
+        Scanner scanner = new Scanner(System.in);
+
+        scanner.nextLine();
         System.out.println("  Fin del programa.");
     }
 }
