@@ -28,7 +28,7 @@ public class InformeSistema {
         System.out.println("  Total reservada: "+ mReservada +" MiB");
         System.out.println("  Libre:           "+mLibre+" MiB");
         System.out.println("  En uso:          "+mUso / (1024 * 1024)+" MiB ("+porcentajeUso+" % de la total)");
-        System.out.println("  Máxima (-Xmx):   "+maxMemory+" MiB");
+        System.out.println("  Máxima (-Xmx):   "+maxMemory / (1024 * 1024)+" MiB");
         System.out.println();
 
         long[] reservado = new long[8 * 1024 * 1024];
@@ -46,7 +46,7 @@ public class InformeSistema {
         System.out.println("  Total reservada: "+ mReservada2 +" MiB");
         System.out.println("  Libre:           "+mLibre2+" MiB");
         System.out.println("  En uso:          "+mUso2 / (1024 * 1024)+" MiB ("+porcentajeUso2+" % de la total)");
-        System.out.println("  Máxima (-Xmx):   "+maxMemory2+" MiB");
+        System.out.println("  Máxima (-Xmx):   "+maxMemory2 / (1024 * 1024)+" MiB");
         System.out.println("  Incremento en uso: " +incrementoUso+ " MiB");
         System.out.println("  (el array sigue en memoria: reservado[0] = 0)");
         System.out.println();
