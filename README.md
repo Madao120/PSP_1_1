@@ -1,8 +1,8 @@
 **Ejercicio 1**  
 Capturas de Respuestas de programa (Procesadores, Memoria antes y despues)
-![Respuesta1](1.png)
+![Respuesta1](capturas/1.png)
 Capturas de Respuesta de programa (Sistema, Propiedades)
-![Respuesta2](2.png)
+![Respuesta2](capturas/2.png)
 Ahora el programa se quedara
 
 **Ejercicio 2**
@@ -19,13 +19,13 @@ diego       871    8 1  09:59 tty1     00:00:00 java org.example.InformeSistema
 
 Ahora buscar el registro del padre mediante el PPID
 (Captura con los 2 últimos pasos)
-![PPIS Terminal](3%20(ppid%20terminal).png)
+![PPIS Terminal](./capturas/3%20(ppid%20terminal).png)
 
 Con esto veremos que el padre es el \-bash
 
 Ejecución por IDE (hecho en Linux, por eso el cambio de nombre)  
 dam26   
-![PID PPID IDE](4%20(ppid%20ide).png)
+![PID PPID IDE](./capturas/4%20(ppid%20ide).png)
 
 El PID será diferente porque cada ejecución crea un proceso nuevo.  
 Sin embargo, el PPID desde mi IDE también ha cambiado, ya que el padre NO ES el bash, si no el propio IDE  
@@ -37,7 +37,7 @@ dam26       8513    2888  4 09:00 ?        00:03:19 /snap/intellij-idea-communit
 
 **b) Modificar el limite de memoria**
 
-![Cambio de memoria](5%20(cambio%20de%20memoria).png)
+![Cambio de memoria](./capturas/5%20(cambio%20de%20memoria).png)
 
 \-Xmx128m modifica el límite máximo de memoria debido a eso cambiarán las cifras del programa.
 
